@@ -1,0 +1,25 @@
+{
+  "name": "forumbot",
+  "version": "0.0.1",
+  "description": "Bot para generar bots",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielhiguerasgoold/telegram-forumbot.git"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "Daniel Higueras Goold, Victor Guillem Agustí",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielhiguerasgoold/telegram-forumbot/issues"
+  },
+  "homepage": "https://github.com/danielhiguerasgoold/telegram-forumbot#readme",
+  "dependencies": {
+    "telegraf": "^3.13.0"
+  }
+}
