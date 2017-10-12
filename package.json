@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/danielhiguerasgoold/telegram-forumbot#readme",
   "dependencies": {
+    "mongoose": "^4.12.1",
     "telegraf": "^3.13.0"
   }
 }
