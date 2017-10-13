@@ -1,6 +1,6 @@
 // Importamos Mongoose y nos conectamos a la base de datos local
 
-var Usuario = require('../modelos/UsuarioSchema');
+var categoria = require('../modelos/CategoriaSchema');
 var mongoose = require('mongoose');
 // const log = require('simple-node-logger').createSimpleLogger('./../utils/logger/log.txt');
 
@@ -13,28 +13,27 @@ mongoose.connect('mongodb://test:1234@ds059712.mlab.com:59712/dev-forobot');//, 
 // 	}
 // });
 
-// var item = new Usuario({
-//     nombreUsuario: "usuario2",
-//     nombre: "Pepito",
-//     lenguaje: "es_ES"
-// });
-
-// item.save(function(err, res) {
-// 	if (err) {
-// 		console.warn("ha petado: "+err);
-// 	}else{
-// 		console.info("todo bien");
-// 	}
-// });
-
-Usuario.findOne({'nombreUsuario': "usuario"}, function(err , dato){
-	if(err) {
-		console.log("Intento login incorrecto con user "+user)
-		// return null;
-	}
-
-	console.log("Login correcto del usuario: "+dato);
+var item = new categoria({
+    nombre: "Foro coches eléctricos",
+    etiquetas: ["coches electricos", "vehiculos", "coches", "vehiculos electricos"]
 });
+
+item.save(function(err, res) {
+	if (err) {
+		log.warn("ha petado: "+err);
+	}else{
+		log.info("todo bien");
+	}
+});
+
+// user.findOne({'userName': "patata", 'password': "barata"}, function(err , dato){
+// 	if(err) {
+// 		log.warn("Intento login incorrecto con user "+user)
+// 		// return null;
+// 	}
+
+// 	log.info("Login correcto del usuario: "+dato);
+
 // 	// mongoose.connect('mongodb://qunbo:123456@ds157740.mlab.com:57740/mydb-dev');
 
 // 	user.update({_id: dato._id}, {$set:{token: "kdfnkfnfknfknfknkn"}}, function (err, numAffected) {

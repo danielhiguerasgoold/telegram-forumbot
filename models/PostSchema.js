@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 
 
 var postSchema = new Schema({
-	titulo:			     String,
-	autor: 				 String,
-	visualizaciones:     {type: Number, default: 0},
-	mensaje: 			 String,
-	categoriaSuscrito:   {type: Schema.ObjectId, ref: "categoria"}
+	titule:			     	String,
+	author: 				String,
+	views:     				{type: Number, default: 0},
+	message: 			 	String,
+	categorySubscribed:   	{type: Schema.ObjectId, ref: "category"}
 });
 
 

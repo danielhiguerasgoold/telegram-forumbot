@@ -14,16 +14,17 @@ mongoose.connect('mongodb://test:1234@ds059712.mlab.com:59712/dev-forobot');//, 
 // });
 
 var item = new foro({
-    name: "Routers"
+    name: "Foro coches eléctricos",
+    etiquetas: ["coches electricos", "vehiculos", "coches", "vehiculos electricos"]
 });
 
-// item.save(function(err, res) {
-// 	if (err) {
-// 		log.warn("ha petado: "+err);
-// 	}else{
-// 		log.info("todo bien");
-// 	}
-// });
+item.save(function(err, res) {
+	if (err) {
+		log.warn("ha petado: "+err);
+	}else{
+		log.info("todo bien");
+	}
+});
 
 // user.findOne({'userName': "patata", 'password': "barata"}, function(err , dato){
 // 	if(err) {
