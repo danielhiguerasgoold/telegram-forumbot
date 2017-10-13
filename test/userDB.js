@@ -4,7 +4,7 @@ var Usuario = require('../models/UserSchema');
 var mongoose = require('mongoose');
 // const log = require('simple-node-logger').createSimpleLogger('./../utils/logger/log.txt');
 
-mongoose.connect('mongodb://test:1234@ds059712.mlab.com:59712/dev-forobot');//, function(err, res) {
+mongoose.connect(process.env.MONGO_CONNECTION_STRING);//, function(err, res) {
 // 	if (err) {
 // 		log.warn('Error en la conexón');
 // 	}
