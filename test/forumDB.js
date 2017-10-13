@@ -14,8 +14,8 @@ mongoose.connect('mongodb://test:1234@ds059712.mlab.com:59712/dev-forobot');//, 
 // });
 
 var item = new forum({
-    name: "Foro coches eléctricos",
-    tags: ["coches electricos", "vehiculos", "coches", "vehiculos electricos"]
+    name: "Foro tecnología",
+    tags: ["tecnologia", "futuro"]
 });
 
 item.save(function(err, res) {
