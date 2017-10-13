@@ -1,6 +1,6 @@
 // Importamos Mongoose y nos conectamos a la base de datos local
 
-var foro = require('../modelos/ForoSchema');
+var forum = require('../models/ForumSchema');
 var mongoose = require('mongoose');
 // const log = require('simple-node-logger').createSimpleLogger('./../utils/logger/log.txt');
 
@@ -13,16 +13,16 @@ mongoose.connect('mongodb://test:1234@ds059712.mlab.com:59712/dev-forobot');//, 
 // 	}
 // });
 
-var item = new foro({
+var item = new forum({
     name: "Foro coches eléctricos",
-    etiquetas: ["coches electricos", "vehiculos", "coches", "vehiculos electricos"]
+    tags: ["coches electricos", "vehiculos", "coches", "vehiculos electricos"]
 });
 
 item.save(function(err, res) {
 	if (err) {
-		log.warn("ha petado: "+err);
+		console.log("ha petado: "+err);
 	}else{
-		log.info("todo bien");
+		console.log("todo bien");
 	}
 });
 

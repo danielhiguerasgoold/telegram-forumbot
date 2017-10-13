@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 
 var postSchema = new Schema({
-	titule:			     	String,
+	title:			     	String,
 	author: 				String,
 	views:     				{type: Number, default: 0},
 	message: 			 	String,
