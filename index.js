@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const Telegraf = require('telegraf');
 const start = require('./commands/start');
+let ForumsDAO = require('./commands/forums');
 const app = new Telegraf(process.env.BOT_TOKEN);
 
 app.command('start', ({ from, reply }) => {
@@ -13,27 +14,26 @@ app.command('start', ({ from, reply }) => {
 app.command('forums', ({from, reply}) => {
 	console.log('forums', from);
 
-	let forums = require('./commands/forums');
-
-	forums.execute(function(error, data) {
+  ForumsDAO.getAllForums(function(error, data) {
 		// Comprobamos si se ha producido un error
 		if (error === null) {
 			console.log("error");
 			reply("Error en el servidor");
 		}
-		else {
-			let mensaje = "Nuestros foros:\n";
-			Object.keys(data).forEach(function(i) {
-				mensaje += " * "+data[i].name+" \n";
-			});
-			return reply(mensaje);
-		}
+
+    const testMenu = Telegraf.Extra
+                              .markdown()
+                              .markup((m) => {
+                                let forumsList = [];
+                                Object.keys(data).forEach(function(i) {
+                                  forumsList.push(m.callbackButton(data[i].name, data[i].name));
+                                });
+
+                                return m.inlineKeyboard(forumsList);
+                              });
+
+    return reply("Nuestros foros:", testMenu);
 	});
-
-
-
 });
 
-app.hears('holi', (ctx) => ctx.reply('Holi holi holiiii!'));
-app.on('sticker', (ctx) => ctx.reply('👍'));
 app.startPolling();

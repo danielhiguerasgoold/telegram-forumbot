@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const Forum = require('../models/ForumSchema');
 
-
-module.exports = {
-	execute: function(callback) {
+class ForumsDAO {
+	static getAllForums(callback) {
 
 		mongoose.connect(process.env.MONGO_CONNECTION_STRING);
 		let resultado = {};
@@ -18,7 +17,7 @@ module.exports = {
 				callback(true, data);
 			}
 		});
-
-		
 	}
 }
+
+module.exports = ForumsDAO;
